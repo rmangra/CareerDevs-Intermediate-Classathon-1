@@ -1,24 +1,24 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
-{
-    printf("s: ");
-    char *s = get_string();
+/* This program tests for the occurrance of string 2 in
+   string 1
+*/
 
-    printf("t: ");
-    char *t = get_string();
+int main(void) {
 
-    if (s != NULL && t != NULL)
-    {
-        if (strcmp(s, t) == 0)
-        {
-            printf("same\n");
-        }
-        else
-        {
-            printf("different\n");
-        }
+    string str1 = get_string("Enter first string: ");
+    string str2 = get_string("Enter second string: ");
+    char *pointer;
+    pointer = strstr(str1, str2);
+
+    if (pointer == 0) {
+        printf("The string does not exist\n");
+        return 0;
+    } else {
+        printf("The string exists\n");
+        return 1;
     }
 }
